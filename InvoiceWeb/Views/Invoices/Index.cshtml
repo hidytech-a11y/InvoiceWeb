@@ -44,9 +44,9 @@
                 <td>@invoice.IssueDate?.ToShortDateString()</td>
                 <td>@invoice.DueDate?.ToShortDateString()</td>
                 <td style="white-space:nowrap">
-                    <a class="btn btn-info btn-sm" asp-controller="Invoices" asp-action="Details" asp-route-id="@invoice.Id">Details</a>
-                    <a class="btn btn-warning btn-sm" asp-controller="Invoices" asp-action="Edit" asp-route-id="@invoice.Id">Edit</a>
-                    <a class="btn btn-danger btn-sm" asp-controller="Invoices" asp-action="Delete" asp-route-id="@invoice.Id">Delete</a>
+                    <a class="btn btn-info btn-sm" asp-controller="Invoices" asp-action="Details" asp-route-id="@invoice.Id"><i class="bi bi-info-circle"></i></a>
+                    <a class="btn btn-warning btn-sm" asp-controller="Invoices" asp-action="Edit" asp-route-id="@invoice.Id"><i class="bi bi-pen-fill"></i></a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Invoices" asp-action="Delete" asp-route-id="@invoice.Id"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         }
