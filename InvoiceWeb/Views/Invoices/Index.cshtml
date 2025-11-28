@@ -1,6 +1,5 @@
 ﻿@model List<Invoice>
 
-
 <h1 class="text-center">List of Invoices</h1>
 
 <a class="btn btn-primary mb-1" asp-controller="Invoices" asp-action="Create">Create New Invoice</a>
@@ -26,9 +25,22 @@
             <tr>
                 <td>@invoice.Id</td>
                 <td>@invoice.Number</td>
-                <td>@invoice.Status</td>
+                <td>
+                    @if (invoice.Status == "Paid")
+                    {
+                        <span class="badge bg-success">@invoice.Status</span>
+                    }
+                    else if (invoice.Status == "Pending")
+                    {
+                        <span class="badge bg-warning text-dark">@invoice.Status</span>
+                    }
+                    else if (invoice.Status == "Overdue")
+                    {
+                        <span class="badge bg-danger">@invoice.Status</span>
+                    }
+                </td>
                 <td>@invoice.ClientName</td>
-                <td>@(totalPrice)$</td>
+                <td>@("₦" + totalPrice.ToString("N2"))</td>
                 <td>@invoice.IssueDate?.ToShortDateString()</td>
                 <td>@invoice.DueDate?.ToShortDateString()</td>
                 <td style="white-space:nowrap">
@@ -38,5 +50,5 @@
                 </td>
             </tr>
         }
-        </tbody>
+    </tbody>
 </table>
